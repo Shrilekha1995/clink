@@ -16,9 +16,9 @@ export class UserService {
   }
 
   
-  saveUser(user: any,token:any): Observable<any> {
+  saveUser(user,token:any): Observable<any> {
     const headers = new HttpHeaders({'Authorization':'Bearer '+token,'Access-Control-Allow-Origin':'*'});
-    return this.http.post("http://localhost:8080/save", user, {
+    return this.http.post("http://localhost:8080/save",user,{
       headers: headers
     });
 

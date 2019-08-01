@@ -1,0 +1,34 @@
+package app.clinkApi.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+@Entity
+@Table(name="file_model")
+public class FileModel {
+	@Id
+	@GeneratedValue
+    @Column(name = "id")
+	@JsonView(View.FileInfo.class)
+    private Long id;
+	
+    @Column(name = "name")
+    @JsonView(View.FileInfo.class)
+	private String name;
+    
+    @Column(name = "mimetype")
+	private String mimetype;
+	
+    @Column(name = "imagePath")
+    private String imagePath;
+	
+	public FileModel(){}
+	
+
+}

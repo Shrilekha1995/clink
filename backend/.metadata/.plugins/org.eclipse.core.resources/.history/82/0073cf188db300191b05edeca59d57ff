@@ -1,0 +1,10 @@
+package app.clinkApi.controller;
+
+public class TestClass {
+
+	public static void main(String[] args) {
+		System.out.println(String path = System.getProperty("user.dir") + "\\src\\abc.png";);
+
+	}
+
+}

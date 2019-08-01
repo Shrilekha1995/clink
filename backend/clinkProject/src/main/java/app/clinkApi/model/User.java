@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import javax.persistence.Lob;
+
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -38,6 +41,9 @@ public class User implements Serializable {
 	private String confirmPassword;
 
 	private Date createddate;
+
+
+
 
 	public User(Long id, String firstName, String lastName, String email, String contactNumber, String password,
 			String confirmPassword, Date createddate) {
