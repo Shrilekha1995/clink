@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +23,13 @@ export class UploadFileService {
     return this.http.request(req);
   }
 
-  getFiles(): Observable<any> {
-    return this.http.get('http://localhost:8080/cars');
-  }
+   getFiles(): Observable<any> {
+     return this.http.get('http://localhost:8080/cars');
+   }
+
+  // getImage() : Observable<JsonString> {
+  //       return this.http.get('http://localhost:8080/cars')
+  //           .map((response : Response) => {
+  //             return response.json();
+  //      })}
 }

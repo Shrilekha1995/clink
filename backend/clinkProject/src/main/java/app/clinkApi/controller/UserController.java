@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import app.clinkApi.model.User;
 import app.clinkApi.service.UserService;
+import app.clinkApi.service.UserServiceImpl;
 
 @RestController
 public class UserController {
@@ -59,6 +60,24 @@ public class UserController {
 		user.setCreateddate(new Date());
 		return new ResponseEntity<User>(userdb, HttpStatus.OK);
 
+	}
+	
+	@PostMapping("/login")
+	public String findUserByEmailPassword(@RequestBody User user)
+	{
+		
+		String email=user.getEmail();
+		String password=user.getPassword();
+		
+		User u=userService.findUserByEmailPassword(email,password);
+		System.out.println("******************"+u+"**********");
+		if(u!=null)
+		{
+			return "true";
+		}
+			
+		return "false";
+		
 	}
 
 }

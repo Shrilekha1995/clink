@@ -2,7 +2,14 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "types": []
+    "types": [],
+     "allowJs": true,
+     "typeRoots": [
+      "../node_modules/@types"
+    ],
+    "types" : [
+      "core-js"
+    ]
   },
   "exclude": [
     "test.ts",

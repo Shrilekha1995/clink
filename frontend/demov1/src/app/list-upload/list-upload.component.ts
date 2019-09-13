@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UploadFileService } from '../upload-file.service';
+import { DomSanitizer,SafeUrl } from '@angular/platform-browser';
+
+
+
 
 @Component({
   selector: 'list-upload',
@@ -13,20 +17,45 @@ export class ListUploadComponent implements OnInit {
   fileUploads: Observable<string[]>;
   fileUpload: string;
   items:any=[];
+  image:any;
+  url:any;
+
+  
+  private sanitizer: DomSanitizer;
+  private readonly imageType : string = 'data:image/PNG;base64,';
+STRING_CHAR:String;
+  
    
 
-  constructor(private uploadService: UploadFileService) { }
+  constructor(private uploadService: UploadFileService,private domSanitizer: DomSanitizer) { }
  
 
+// getImage(){
+//        this.uploadService.getImage()
+//            .subscribe((data :JsonString ) => {
+//                this.image = this.sanitizer.bypassSecurityTrustUrl(this.imageType + data.content);
+// })}
 
-  ngOnInit() {
-  }
 
-  showFiles(enable: boolean) {
-    this.showFile = enable;
+    ngOnInit() {
+    // this.uploadService.getFiles().subscribe(
+    //   data =>{
 
-    if (enable) {
-      this.items = this.uploadService.getFiles();
-    }
+    //     console.log("1");
+    //     this.image1=data;
+    //     console.log(this.image1);
+    //    //const TYPED_ARRAY = this.image1;
+    //     // this.STRING_CHAR = String.fromCharCode.apply(null, TYPED_ARRAY); 
+    //     this.url = this.domSanitizer.bypassSecurityTrustUrl('data:image/jpg;base64, ' +this.image1);
+    //     console.log(this.url)
+    //   // let var1=new Uint8Array;
+    //   //console.log(this.url);
+    // },err =>{
+    //   console.log("2");
+    //     console.log(err);
+    //   }
+    // )
   }
 }
+ 
+

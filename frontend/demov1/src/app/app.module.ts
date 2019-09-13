@@ -16,11 +16,15 @@ import {DetailsUploadComponent} from './details-upload/details-upload.component'
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { CarsComponent } from './cars/cars.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
 const routes: Routes = [
-
+ {
+   path:"contact",
+   component:ContactComponent
+ },
   {
     path: "signup",
     component: SignupComponent
@@ -67,6 +71,7 @@ const routes: Routes = [
     FormUploadComponent,
     DetailsUploadComponent,
     CarsComponent,
+    ContactComponent,
    
     
   ],
