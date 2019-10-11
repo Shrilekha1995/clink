@@ -17,6 +17,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { CarsComponent } from './cars/cars.component';
 import { ContactComponent } from './contact/contact.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductItemComponent } from './product-item/product-item.component';
 
 
 
@@ -53,6 +55,10 @@ const routes: Routes = [
 {
   path:"cars",
   component:ListUploadComponent
+},
+{
+  path:"products",
+  component:ProductDetailsComponent
 }
 ];
 
@@ -72,6 +78,8 @@ const routes: Routes = [
     DetailsUploadComponent,
     CarsComponent,
     ContactComponent,
+    ProductDetailsComponent,
+    ProductItemComponent,
    
     
   ],
