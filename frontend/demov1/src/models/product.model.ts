@@ -1,4 +1,5 @@
 export class Product{
     
-    constructor(public name:string,public imagePath:string,public price :number,public description:string){}
+    constructor(public productId:number,public productName:string,public productPrice :number,public imagePath:string,
+    public productDescription:string){}
 }

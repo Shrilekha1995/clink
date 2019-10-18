@@ -1,0 +1,18 @@
+package app.clinkApi.service;
+
+import java.util.List;
+
+import app.clinkApi.model.Product;
+
+public class ProductServiceImpl implements ProductService {
+	
+	@Autowired
+	ProductRepository
+
+	@Override
+	public List<Product> getAllProducts() {
+		
+		return productRepository.findAll();;
+	}
+
+}

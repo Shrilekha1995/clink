@@ -1,0 +1,5 @@
+package app.clinkApi.repository;
+
+public interface ProductRepository {
+
+}
