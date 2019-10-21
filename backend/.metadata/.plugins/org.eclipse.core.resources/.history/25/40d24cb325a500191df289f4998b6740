@@ -1,0 +1,10 @@
+package app.clinkApi.service;
+
+
+@Service
+@Transactional
+public class UserService{
+	
+	
+	
+}

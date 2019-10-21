@@ -1,0 +1,26 @@
+package app.clinkApi.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import app.clinkApi.model.Product;
+import app.clinkApi.service.ProductService;
+
+@RestController("/product")
+public class ProductController {
+
+	
+	@Autowired
+	ProductService productService;
+	
+	
+	@GetMapping("/allProducts")
+	public List<Product> findAllProducts(){
+		
+		return productService.getAllProducts();
+		
+	}
+}

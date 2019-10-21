@@ -1,0 +1,63 @@
+package app.clinkApi.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@Entity
+@Table(name="user")
+public class User implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="user_id")
+	private Integer id;
+	
+	@Column(name="first_name")
+	private String firstName;
+	@Column(name="last_name")
+	private String lastName;
+	@Column(name="username")
+	private String email;
+	@Column(name="contact_number")
+	private String contactNumber;
+	@Column
+	private String password;
+	@Transient
+	private String confirmPassword;
+	
+	private Date createddate;
+
+	
+	
+	
+
+
+
+
+
+	
+	public User() {
+	
+	}
+
+
+	
+}
+
+	

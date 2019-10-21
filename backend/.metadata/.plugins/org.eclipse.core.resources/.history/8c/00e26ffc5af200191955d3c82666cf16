@@ -1,0 +1,23 @@
+spring.datasource.url=jdbc:mysql://localhost:3306/clink
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.username=root
+spring.datasource.password =root
+spring.datasource.testWhileIdle=true
+spring.datasource.validationQuery=SELECT 1
+
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.hibernate.naming-strategy=org.hibernate.cfg.ImprovedNamingStrategy
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+
+security
+spring.security.user.name=user
+spring.security.user.password=user
+
+
+spring.mail.host=smtp.gmail.com
+spring.mail.username=shrilekha3232
+spring.mail.password=shri@1995
+spring.mail.port=587
+spring.mail.properties.mail.smtp.starttls.enable =true
+spring.mail.properties.mail.smtp.auth=true

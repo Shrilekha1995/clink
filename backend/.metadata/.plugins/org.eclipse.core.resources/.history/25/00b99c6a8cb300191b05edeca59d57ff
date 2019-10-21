@@ -1,0 +1,111 @@
+package app.clinkApi.controller;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+import app.clinkApi.model.FileModel;
+import app.clinkApi.model.View;
+import app.clinkApi.repository.FileRepository;
+import org.springframework.http.MediaType;
+import org.springframework.core.io.InputStreamResource;
+ 
+@CrossOrigin(origins = "http://localhost:4200")
+@RestController
+public class DownloadFileController {
+	private static final String FILE_DIRECTORY = "F:\\clink\\backend\\clinkProject\\src\\images";
+	  List<String> files = new ArrayList<String>();
+	@Autowired
+	FileRepository fileRepository;
+
+	/*
+	 * List All Files
+	 */
+  /*  @JsonView(View.FileInfo.class)
+    @GetMapping("/cars")
+    public ResponseEntity<List<String>> getListFiles(Model model) {
+      List<String> fileNames = files
+          .stream().map(fileName -> MvcUriComponentsBuilder
+              .fromMethodName(DownloadFileController.class, "getFile", fileName).build().toString())
+          .collect(Collectors.toList());
+   
+      return ResponseEntity.ok().body(fileNames);
+    }*/
+	
+		/*@GetMapping("/cars")
+	public ResponseEntity<Multi> getListFiles() throws IOException {
+		List<FileModel> names=fileRepository.findAll();
+    	ClassPathResource imgFile = new ClassPathResource("abc.png");
+    	
+    			 return ResponseEntity
+    		                .ok()
+    		                .contentType(MediaType.IMAGE_PNG)
+    		                .body(new InputStreamResource(imgFile.getInputStream()));
+    		 }*/
+   
+	
+	@GetMapping("/cars")
+	public ResponseEntity<List<byte []>>getListFiles() throws IOException{
+		
+	 byte[] encoded = Files.readAllBytes(Paths.get("abc.png"));
+	 byte[] encoded2 = Files.readAllBytes(Paths.get("abc.png"));
+	 List<byte[]> imgList=new ArrayList<>();
+	 imgList.add(encoded);
+	 imgList.add(encoded2);
+	 
+	return  ResponseEntity.ok().body(imgList);
+    		                
+	}
+/*@GetMapping("/cars")
+	public ResponseEntity<List<InputStreamResource>> getListFiles() throws IOException {
+		List<FileModel> names=fileRepository.findAll();
+    	ClassPathResource imgFile = new ClassPathResource("abc.png");
+    	ClassPathResource imgFile2 = new ClassPathResource("abc.png");
+    	List<InputStreamResource> imgList=new ArrayList<>();
+    	imgList.add(new InputStreamResource(imgFile.getInputStream()));
+    	imgList.add(new InputStreamResource(imgFile2.getInputStream()));
+    	
+    
+    			 return ResponseEntity
+    		                .ok()
+    		                .contentType(MediaType.IMAGE_PNG)
+    		                .body(imgList);
+    		 }
+    */
+		
+	
+	
+    /*
+     * Download Files
+     */
+	/*@GetMapping("/api/file/{id}")
+	public ResponseEntity<byte[]> getFile(@PathVariable Long id) {
+		Optional<FileModel> fileOptional = fileRepository.findById(id);
+		
+		if(fileOptional.isPresent()) {
+			FileModel file = fileOptional.get();
+			return ResponseEntity.ok()
+					.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getName() + "\"")
+					.body(file.getPic());	
+		}
+		
+		return ResponseEntity.status(404).body(null);
+	}*/
+}

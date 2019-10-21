@@ -1,0 +1,14 @@
+package app.clinkApi.controller;
+
+import java.io.File;
+
+public class TestController {
+
+	public static void main(String[] args) {
+		
+		
+		File f=new File(".myText.txt");
+
+	}
+
+}

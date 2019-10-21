@@ -1,0 +1,15 @@
+package app.clinkApi.service;
+
+import java.util.List;
+
+import app.clinkApi.model.Product;
+
+public class ProductServiceImpl implements ProductService {
+
+	@Override
+	public List<Product> getAllProducts() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

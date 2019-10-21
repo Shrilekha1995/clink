@@ -1,0 +1,12 @@
+package app.clinkApi.service;
+
+import java.util.List;
+
+import app.clinkApi.model.User;
+
+public interface UserService {
+
+	public List<User> getAllUser();
+
+	public void delete(Long id); 
+}

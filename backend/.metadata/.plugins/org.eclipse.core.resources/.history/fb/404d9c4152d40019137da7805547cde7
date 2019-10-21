@@ -1,0 +1,5 @@
+package app.clinkApi.service;
+
+public interface UserService {
+
+}
