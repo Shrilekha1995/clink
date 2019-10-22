@@ -80,4 +80,18 @@ public class UserController {
 		
 	}
 
+	
+	@PostMapping("/forgotEmail")
+	public int forgotEmail(@RequestBody String email){
+		return userService.sendResetPasswordLink(email);
+	}
+	
+	@PostMapping("/updatePass")
+	public String updatePassword(@RequestBody User user){
+		System.out.println(user.getEmail()+""+user.getPassword());
+		return userService.updatePassword(user.getEmail(),user.getPassword());
+	}
+
+
+
 }

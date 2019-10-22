@@ -3,6 +3,10 @@ package app.clinkApi.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +16,16 @@ import app.clinkApi.repository.UserRepository;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
+
+	
+	private JavaMailSender javaMailSender;
+	
+	@Autowired
+	public UserServiceImpl(JavaMailSender javaMailSender)
+	{
+		this.javaMailSender=javaMailSender;
+	}
+
 
 	@Autowired
 	UserRepository userRepository;
@@ -40,5 +54,35 @@ public class UserServiceImpl implements UserService {
 		User u=userRepository.findUserByEmailPassword(email,password);
 		return u;
 	}
+
+	
+	@Override
+	public int sendResetPasswordLink(String email) {
+		System.out.println("in sendNotification()");
+		SimpleMailMessage mail= new SimpleMailMessage();
+	
+		
+		mail.setFrom("clink24x7@gmail.com");
+		
+		mail.setTo(email);
+	
+		
+		mail.setSubject("Reset your password");
+		double num=Math.random()*200000;
+		int number=(int) Math.round(num);
+		String text="your OTP is :"+number;
+		mail.setText(text);
+		
+		javaMailSender.send(mail);
+		return number;
+		
+	}
+
+	@Override
+	public String updatePassword(String email, String password) {
+		this.userRepository.updatePassword(email,password);
+		return "success";
+	}
+
 
 }

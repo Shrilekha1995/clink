@@ -1,0 +1,26 @@
+package app.clinkApi.service;
+
+import java.util.List;
+
+import app.clinkApi.model.User;
+
+public interface UserService {
+
+	public List<User> getAllUser();
+
+	public void delete(Long id);
+
+	public User save(User user);
+
+	public User update(User user);
+
+<<<<<<< HEAD
+	public User findUserByEmailPassword(String email, String password); 
+=======
+	public User findUserByEmailPassword(String email, String password);
+
+	int sendResetPasswordLink(String email);
+
+	public String updatePassword(String email, String password); 
+>>>>>>> 694c020a6f8242f4937814900dc003b356f47488
+}

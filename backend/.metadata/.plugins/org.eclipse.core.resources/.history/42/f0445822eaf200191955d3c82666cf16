@@ -1,0 +1,15 @@
+package app.clinkApi.controller;
+
+public class TestClass {
+
+	public static void main(String[] args) {
+		
+		for(int i=0;i<10;i++)
+		{
+		double num=Math.random();
+		System.out.println(num);
+		}
+
+	}
+
+}

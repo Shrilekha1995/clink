@@ -1,0 +1,58 @@
+
+
+
+<div class="container">
+    <div class="row">
+      <div class="offset-3"></div>
+      <div class="col-md-6">
+<form #productForm="ngForm" name="form">
+  <div class="form-group">
+    <label for="productName">product Name</label>
+    <input type="text" class="form-control" id="productName"
+    [(ngModel)]="product.productName" name="productName">
+    
+                        <br>
+  </div> 
+
+
+<div>
+  <label class="btn btn-default">
+  <input type="file" (change)="selectFile($event)">
+</label>
+
+<button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button> 
+
+</div>
+
+<div class="form-group">
+        <label for="productPrice">product Price</label>
+        <input type="productPrice" class="form-control" id="productPrice"
+        [(ngModel)]="product.productPrice" name="productPrice">
+       
+                        <br/>
+      </div>  
+
+
+  <div class="form-group">
+      <label for="productDescription">product Description</label>
+      <input type="text" class="form-control" id="productDescription"
+      [(ngModel)]="product.productDescription" name="productDescription">
+                        <br/>
+    </div> 
+    
+    
+     
+         
+
+           
+
+
+            <div class="form-group">
+              <button type="button" class="btn btn-primary" (click)="saveProduct(product)" [disabled]="!user.firstName || !user.lastName || !user.email || !user.password || !user.contactNumber">Submit</button>
+            </div>
+</form>
+</div>
+</div>
+</div>
+
+

@@ -47,4 +47,9 @@
 <fullyQualifiedTypeName name="app.clinkApi.service.UserService"/>
 <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
 <fullyQualifiedTypeName name="org.springframework.data.repository.query.Param"/>
+<<<<<<< HEAD
+=======
+<fullyQualifiedTypeName name="org.springframework.mail.javamail.JavaMailSender"/>
+<fullyQualifiedTypeName name="org.springframework.mail.SimpleMailMessage"/>
+>>>>>>> 694c020a6f8242f4937814900dc003b356f47488
 </qualifiedTypeNameHistroy>

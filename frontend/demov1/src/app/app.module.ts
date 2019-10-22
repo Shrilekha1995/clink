@@ -19,6 +19,12 @@ import { CarsComponent } from './cars/cars.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductItemComponent } from './product-item/product-item.component';
+import { ConfirmPasswordComponent } from "src/app/confirm-password/confirm-password.component";
+import { AddProductComponent } from './add-product/add-product.component';
+
+
+
+
 
 
 
@@ -27,6 +33,12 @@ const routes: Routes = [
    path:"contact",
    component:ContactComponent
  },
+
+ {
+   path:"confirm-password",
+   component:ConfirmPasswordComponent
+ },
+
   {
     path: "signup",
     component: SignupComponent
@@ -50,7 +62,7 @@ const routes: Routes = [
 ,
 {
   path:"form-upload",
-  component:FormUploadComponent
+  component:AddProductComponent
 },
 {
   path:"cars",
@@ -80,6 +92,11 @@ const routes: Routes = [
     ContactComponent,
     ProductDetailsComponent,
     ProductItemComponent,
+
+ConfirmPasswordComponent,
+
+AddProductComponent,
+
    
     
   ],

@@ -14,5 +14,13 @@ public interface UserService {
 
 	public User update(User user);
 
+
 	public User findUserByEmailPassword(String email, String password); 
+
+	
+
+	int sendResetPasswordLink(String email);
+
+	public String updatePassword(String email, String password); 
+
 }

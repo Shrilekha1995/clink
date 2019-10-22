@@ -1,0 +1,13 @@
+package app.clinkApi.controller;
+
+public class TestClass {
+
+	public static void main(String[] args) {
+		
+		
+		byte num=(byte) Math.random();
+		System.out.println(num);
+
+	}
+
+}
