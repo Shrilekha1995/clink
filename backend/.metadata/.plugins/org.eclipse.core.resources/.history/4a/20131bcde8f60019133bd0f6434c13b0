@@ -1,0 +1,12 @@
+package app.clinkApi.model;
+
+import org.springframework.web.multipart.MultipartFile;
+
+public class ProductTemp {
+	
+	private String productName;
+	private Double productPrice;
+	private MultipartFile file;
+	private String productDescription;
+
+}

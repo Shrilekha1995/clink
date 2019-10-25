@@ -1,20 +1,32 @@
 package app.clinkApi.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import app.clinkApi.model.FileModel;
 import app.clinkApi.model.Product;
+import app.clinkApi.model.ProductTemp;
 import app.clinkApi.service.ProductService;
 
 @RestController
 @RequestMapping(value="/product")
 public class ProductController {
 
-	
+	private static final String FILE_DIRECTORY = "F:\\clink\\frontend\\demov1\\src\\assets";
 	@Autowired
 	ProductService productService;
 	
@@ -25,4 +37,59 @@ public class ProductController {
 		return productService.getAllProducts();
 		
 	}
+	
+	
+	
+	@PostMapping(value="/addProduct")
+	public String addProduct(@RequestBody ProductTemp productTemp){
+		
+		
+
+		MultipartFile file=productTemp.getFile();
+		System.out.println(file);
+		Path filePath = Paths.get(FILE_DIRECTORY + "/" + file.getOriginalFilename());
+         System.out.println("file path"+ filePath);
+		try {
+			Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	String name=file.getOriginalFilename();
+    	
+    	Product product=new Product(productTemp.getProductName(),productTemp.getProductPrice(),name,productTemp.getProductDescription());
+    	
+    	productService.saveProduct(product);
+    	return "File uploaded successfully! -> filename = " + file.getOriginalFilename();
+	
+	
+		
+	}
+	
+	
+/*	
+	
+	@PostMapping(value="/addProduct" , consumes="multipart/form-data")
+	public String addProduct(@RequestBody Product product,@RequestParam("file") MultipartFile file){
+		
+		
+
+		Path filePath = Paths.get(FILE_DIRECTORY + "/" + file.getOriginalFilename());
+         System.out.println("file path"+ filePath);
+		try {
+			Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	String name=file.getOriginalFilename();
+    	
+    	//Product product=new Product(productTemp.getProductName(),productTemp.getProductPrice(),name,productTemp.getProductDescription());
+    	
+    	productService.saveProduct(product);
+    	return "File uploaded successfully! -> filename = " + file.getOriginalFilename();
+	
+	
+		
+	}*/
 }

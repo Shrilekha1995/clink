@@ -84,6 +84,17 @@ public class Product {
 	}
 
 
+
+
+	public Product(String productName, Double productPrice, String imagePath, String productDescription) {
+		super();
+		this.productName = productName;
+		this.productPrice = productPrice;
+		this.imagePath = imagePath;
+		this.productDescription = productDescription;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice

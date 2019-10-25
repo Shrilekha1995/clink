@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;app.clinkApi.model.ProductDemo&apos; to &apos;ProductTemp&apos;&#x0D;&#x0A;- Original project: &apos;clinkProject&apos;&#x0D;&#x0A;- Original element: &apos;app.clinkApi.model.ProductDemo&apos;&#x0D;&#x0A;- Renamed element: &apos;app.clinkApi.model.ProductTemp&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ProductDemo&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;app.clinkApi.model{ProductDemo.java[ProductDemo" matchStrategy="1" name="ProductTemp" qualified="false" references="true" similarDeclarations="false" stamp="1571981477339" textual="false" version="1.0"/>
+</session>
