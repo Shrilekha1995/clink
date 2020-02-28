@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from "src/models/product.model";
-import { ProductService } from "src/app/product.service";
+import { ProductService } from "src/app/services/product.service";
 import {Pipe, PipeTransform} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 

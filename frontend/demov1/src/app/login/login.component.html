@@ -1,5 +1,5 @@
 
-
+<div align="center">
 
 <div [hidden]=!ishidden>
   <form #userForm="ngForm">
@@ -11,7 +11,7 @@
   
         
         <tr>  <td>Password:</td><td><input type="password" [(ngModel)]="user.password" name="password" /></td></tr>
-         <tr><td><button class="btn btn-primary" (click)="onLogin">Submit</button></td><td><button class="btn btn-primary" (click)="onForgot()">Forgot password</button></td></tr>
+         <tr><td><button class="btn btn-primary" (click)="onLogin()">Submit</button></td><td><button class="btn btn-primary" (click)="onForgot()">Forgot password</button></td></tr>
   </table>
     </form>
   </div>
@@ -28,3 +28,4 @@
     <p>{{OTPstatus}}</p>
   </div>
 
+</div>

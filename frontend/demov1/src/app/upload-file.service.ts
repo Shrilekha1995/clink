@@ -11,6 +11,7 @@ export class UploadFileService {
   constructor(private http: HttpClient) { }
 
   pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
+    console.log(file);
     const formdata: FormData = new FormData();
 
     formdata.append('file', file);
@@ -24,12 +25,8 @@ export class UploadFileService {
   }
 
    getFiles(): Observable<any> {
-     return this.http.get('http://localhost:8080/cars');
+     return this.http.get('http://localhost:8080/product/cars');
    }
 
-  // getImage() : Observable<JsonString> {
-  //       return this.http.get('http://localhost:8080/cars')
-  //           .map((response : Response) => {
-  //             return response.json();
-  //      })}
+
 }

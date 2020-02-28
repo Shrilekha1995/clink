@@ -6,7 +6,7 @@ public class ProductTemp {
 	
 	private String productName;
 	private Double productPrice;
-	private MultipartFile file;
+	private MultipartFile productFile;
 	private String productDescription;
 	public String getProductName() {
 		return productName;
@@ -21,10 +21,10 @@ public class ProductTemp {
 		this.productPrice = productPrice;
 	}
 	public MultipartFile getFile() {
-		return file;
+		return productFile;
 	}
 	public void setFile(MultipartFile file) {
-		this.file = file;
+		this.productFile = file;
 	}
 	public String getProductDescription() {
 		return productDescription;
@@ -36,7 +36,7 @@ public class ProductTemp {
 		super();
 		this.productName = productName;
 		this.productPrice = productPrice;
-		this.file = file;
+		this.productFile = file;
 		this.productDescription = productDescription;
 	}
 	public ProductTemp(){
@@ -44,7 +44,7 @@ public class ProductTemp {
 	}
 	@Override
 	public String toString() {
-		return "ProductTemp [productName=" + productName + ", productPrice=" + productPrice + ", file=" + file
+		return "ProductTemp [productName=" + productName + ", productPrice=" + productPrice + ", productFile=" + productFile
 				+ ", productDescription=" + productDescription + "]";
 	}
 	

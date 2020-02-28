@@ -1,0 +1,5 @@
+package app.clinkApi.controller;
+
+public class AuthenticationController {
+
+}

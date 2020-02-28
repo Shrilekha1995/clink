@@ -18,8 +18,7 @@ import app.clinkApi.model.FileModel;
 import app.clinkApi.repository.FileRepository;
 
 
-
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(value="http://localhost:4200")
 @RestController
 public class UploadFileController {
 	private static final String FILE_DIRECTORY = "F:\\clink\\frontend\\demov1\\src\\assets";

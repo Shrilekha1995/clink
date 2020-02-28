@@ -39,14 +39,27 @@ public class User implements Serializable {
 	private String password;
 	@Transient
 	private String confirmPassword;
+	
+	private String role;
 
 	private Date createddate;
 
+	
+
+
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
 
 
 
 	public User(Long id, String firstName, String lastName, String email, String contactNumber, String password,
-			String confirmPassword, Date createddate) {
+			String confirmPassword, String role, Date createddate) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -55,6 +68,7 @@ public class User implements Serializable {
 		this.contactNumber = contactNumber;
 		this.password = password;
 		this.confirmPassword = confirmPassword;
+		this.role = role;
 		this.createddate = createddate;
 	}
 

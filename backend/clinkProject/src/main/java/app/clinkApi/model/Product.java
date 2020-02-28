@@ -1,5 +1,6 @@
 package app.clinkApi.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,12 +15,25 @@ public class Product {
 	private Integer productId;
 	private String productName;
 	private Double productPrice;
-	private String imagePath;
+	
+
+	private byte[] picByte;
+	
 	private String productDescription;
 	
 	
 	public Product(){
 		
+	}
+
+
+	public byte[] getPicByte() {
+		return picByte;
+	}
+
+
+	public void setPicByte(byte[] picByte) {
+		this.picByte = picByte;
 	}
 
 
@@ -53,14 +67,6 @@ public class Product {
 	}
 
 
-	public String getImagePath() {
-		return imagePath;
-	}
-
-
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
-	}
 
 
 	public String getProductDescription() {
@@ -73,24 +79,24 @@ public class Product {
 	}
 
 
-	public Product(Integer productId, String productName, Double productPrice, String imagePath,
+	public Product(Integer productId, String productName, Double productPrice, byte [] picByte,
 			String productDescription) {
 		super();
 		this.productId = productId;
 		this.productName = productName;
 		this.productPrice = productPrice;
-		this.imagePath = imagePath;
+		this.picByte = picByte;
 		this.productDescription = productDescription;
 	}
 
 
 
 
-	public Product(String productName, Double productPrice, String imagePath, String productDescription) {
+	public Product(String productName, Double productPrice,byte [] picByte, String productDescription) {
 		super();
 		this.productName = productName;
 		this.productPrice = productPrice;
-		this.imagePath = imagePath;
+		this.picByte = picByte;
 		this.productDescription = productDescription;
 	}
 
@@ -98,7 +104,7 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice
-				+ ", imagePath=" + imagePath + ", productDescription=" + productDescription + "]";
+				+ ", picByte=" + picByte + ", productDescription=" + productDescription + "]";
 	}
 	
 	

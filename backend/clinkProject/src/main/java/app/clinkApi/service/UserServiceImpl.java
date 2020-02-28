@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,7 +18,8 @@ import app.clinkApi.repository.UserRepository;
 @Transactional
 public class UserServiceImpl implements UserService {
 
-	
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder;
 	private JavaMailSender javaMailSender;
 	
 	@Autowired
@@ -36,11 +38,16 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public User save(User user) {
-
+		String p=passwordEncoder.encode(user.getPassword());
+		System.out.println(p);
+		user.setPassword(p);
 		return userRepository.save(user);
 	}
 
 	public User update(User user) {
+		String p=passwordEncoder.encode(user.getPassword());
+		System.out.println(p);
+		user.setPassword(p);
 		return userRepository.save(user);
 	}
 

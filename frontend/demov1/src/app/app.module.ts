@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { UserService } from './user.service';
+import { UserService } from 'src/app/services/user.service';
 import {UploadFileService} from './upload-file.service';
 import { Routes, RouterModule } from '@angular/router';
 import {ListUploadComponent} from './list-upload/list-upload.component';
@@ -21,6 +21,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ConfirmPasswordComponent } from "src/app/confirm-password/confirm-password.component";
 import { AddProductComponent } from './add-product/add-product.component';
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { AuthenticationService } from "src/app/services/authentication.service";
+
 
 
 
@@ -60,17 +63,18 @@ const routes: Routes = [
   component: HomeComponent
 }
 ,
-{
-  path:"form-upload",
-  component:AddProductComponent
-},
+
 {
   path:"cars",
-  component:ListUploadComponent
+  component:CarsComponent
 },
 {
   path:"products",
   component:ProductDetailsComponent
+},
+{
+  path:"app-add-product",
+  component:AddProductComponent
 }
 ];
 
@@ -97,6 +101,8 @@ ConfirmPasswordComponent,
 
 AddProductComponent,
 
+
+
    
     
   ],
@@ -111,7 +117,7 @@ AddProductComponent,
     
   ],
 
-  providers: [UserService,UploadFileService],
+  providers: [UserService,UploadFileService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

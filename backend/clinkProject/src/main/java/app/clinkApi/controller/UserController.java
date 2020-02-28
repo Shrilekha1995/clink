@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import app.clinkApi.model.User;
 import app.clinkApi.service.UserService;
 import app.clinkApi.service.UserServiceImpl;
 
+@CrossOrigin(value="http://localhost:4200")
 @RestController
 public class UserController {
 
@@ -25,6 +27,7 @@ public class UserController {
 
 	@GetMapping(value = "/users")
 	public ResponseEntity<List<User>> getAllUser() {
+		
 		List<User> users = userService.getAllUser();
 		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 
@@ -46,8 +49,9 @@ public class UserController {
 		System.out.println(user);
 		if (user == null)
 			throw new NullPointerException("Person object can not be null");
-		User userdb = userService.save(user);
 		user.setCreateddate(new Date());
+		User userdb = userService.save(user);
+		
 		return new ResponseEntity<User>(userdb, HttpStatus.OK);
 
 	}

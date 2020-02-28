@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
+import { UserService } from 'src/app/services/user.service';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FormsModule, FormGroup,FormBuilder,FormControl,Validators}   from '@angular/forms';
 
@@ -17,7 +17,7 @@ export class SignupComponent  {
   public message: string='';
   public users:any=[];
   public user :any={};
-  public userFile:any= File;
+  
   
 
   constructor(private userService : UserService)
@@ -50,10 +50,6 @@ export class SignupComponent  {
 
 
 
-  onSelectFile(event){
-    const file= event.target.files;
-    this.userFile=file;
-
-  }
+  
 
 }
